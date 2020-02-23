@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.3" method="upgrade">
+	<name>com_compras</name>
+	<creationDate>2019-07-31</creationDate>
+	<author>www.com-property.com</author>
+	<authorEmail>fabiouz@gmail.com</authorEmail>
+	<authorUrl>http://www.com-property.com</authorUrl>
+	<copyright>Copyright com-property.com</copyright>
+	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<version>1.3</version>
+	<description>Compras for Joomla 3+ CMS</description>
+	<install>
+		<sql>
+			<file charset="utf8" driver="mysql">sql/install.sql</file>
+		</sql>
+	</install>
+	<scriptfile>script.php</scriptfile>
+	<uninstall>
+		<sql>
+			<file charset="utf8" driver="mysql">sql/uninstall.sql</file>
+		</sql>
+	</uninstall>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+	<files folder="site">
+		<filename>controller.php</filename>
+		<filename>router.php</filename>
+		<filename>compras.php</filename>
+		<filename>index.html</filename>
+		<folder>controllers</folder>
+		<folder>helpers</folder>
+		<folder>models</folder>		
+		<folder>views</folder>		
+	</files>
+	<media destination="com_compras" folder="media">
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>mail</folder>
+	</media>
+	<languages folder="site">       
+		<language tag="en-GB">en-GB.com_compras.ini</language>
+		<language tag="es-ES">es-ES.com_compras.ini</language>		
+    </languages>
+	<administration>
+		<files folder="admin">
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>includes</folder>			
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>			
+			<filename>compras.php</filename>
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>			
+			<filename>index.html</filename>
+			<filename>script.php</filename>	
+		</files>
+		<menu>COM_COMPRAS_MENU</menu>		
+		<languages folder="admin">
+			<language tag="en-GB">en-GB.com_compras.ini</language>
+			<language tag="en-GB">en-GB.com_compras.sys.ini</language>
+			<language tag="es-ES">es-ES.com_compras.ini</language>
+			<language tag="es-ES">es-ES.com_compras.sys.ini</language>
+		</languages>
+	</administration>
+</extension>

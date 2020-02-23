@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<metadata>
+	<layout title="Maletas" option="com_compras">
+		<help key="Maletas" />
+		<message>
+			Maletas
+		</message>
+	</layout>
+
+	<fields name="params">
+
+		<!-- Basic options. -->
+		<fieldset name="params" label="Parametros">
+			<field name="game" type="list" label="Juego" description="Juego" useglobal="true" class="chzn-color">
+				<option value="0">Seleccione Juego</option>
+				<option value="1">The Expedition</option>
+				<option value="2">Mission 0</option>
+				<option value="3">KIT</option>
+			</field>
+		</fieldset>
+	</fields>
+
+</metadata>

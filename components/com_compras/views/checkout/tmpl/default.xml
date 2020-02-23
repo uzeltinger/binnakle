@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Checkout" option="com_compras">
+		<help
+			key = "Checkout"
+		/>
+		<message>
+			Maletas
+		</message>
+	</layout>
+</metadata>

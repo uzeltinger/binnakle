@@ -1,0 +1,103 @@
+{
+    "ack": "success",
+    "data": {
+        "create_time": "2019-08-17T22:19:15Z",
+        "update_time": "2019-08-17T22:19:15Z",
+        "id": "11X52279KP878812J",
+        "intent": "CAPTURE",
+        "status": "COMPLETED",
+        "payer": {
+            "email_address": "fuzeltinger@vocus.com",
+            "payer_id": "5T59YL66FPY66",
+            "address": {
+                "country_code": "AR"
+            },
+            "name": {
+                "given_name": "fabuio",
+                "surname": "este"
+            }
+        },
+        "purchase_units": [
+            {
+                "description": "Maleta Binnakle The Expedition + Pack X partidas + Webinar*",
+                "reference_id": "1566079683",
+                "soft_descriptor": "PAYPAL *VENDEDORPAY",
+                "amount": {
+                    "value": "1333.00",
+                    "currency_code": "USD"
+                },
+                "payee": {
+                    "email_address": "vendedor-paypal@binnakle.com",
+                    "merchant_id": "NQPUEEK4JKSNG"
+                },
+                "shipping": {
+                    "name": {
+                        "full_name": "fabuio este"
+                    },
+                    "address": {
+                        "address_line_1": "arias 665",
+                        "admin_area_2": "cordoba",
+                        "admin_area_1": "CÓRDOBA",
+                        "postal_code": "5000",
+                        "country_code": "AR"
+                    }
+                },
+                "payments": {
+                    "captures": [
+                        {
+                            "status": "COMPLETED",
+                            "id": "3BY38283UJ786634J",
+                            "final_capture": true,
+                            "create_time": "2019-08-17T22:19:15Z",
+                            "update_time": "2019-08-17T22:19:15Z",
+                            "amount": {
+                                "value": "1333.00",
+                                "currency_code": "USD"
+                            },
+                            "seller_protection": {
+                                "status": "ELIGIBLE",
+                                "dispute_categories": [
+                                    "ITEM_NOT_RECEIVED",
+                                    "UNAUTHORIZED_TRANSACTION"
+                                ]
+                            },
+                            "links": [
+                                {
+                                    "href": "https://api.sandbox.paypal.com/v2/payments/captures/3BY38283UJ786634J",
+                                    "rel": "self",
+                                    "method": "GET",
+                                    "title": "GET"
+                                },
+                                {
+                                    "href": "https://api.sandbox.paypal.com/v2/payments/captures/3BY38283UJ786634J/refund",
+                                    "rel": "refund",
+                                    "method": "POST",
+                                    "title": "POST"
+                                },
+                                {
+                                    "href": "https://api.sandbox.paypal.com/v2/checkout/orders/11X52279KP878812J",
+                                    "rel": "up",
+                                    "method": "GET",
+                                    "title": "GET"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ],
+        "links": [
+            {
+                "href": "https://api.sandbox.paypal.com/v2/checkout/orders/11X52279KP878812J",
+                "rel": "self",
+                "method": "GET",
+                "title": "GET"
+            }
+        ]
+    },
+    "meta": {
+        "calc": "3d692a7c67e95",
+        "rlog": "rZJvnqaaQhLn%2FnmWT8cSUueWscmrtUHe5Y1Bd%2FeqyvyOTq66rSXAcoHt23K4aX7r7RV0T%2BAtZVLHG%2FvY24WQLjZmSD%2F5%2FJpjGqQx43UnlNg_16ca1a9cc8b"
+    },
+    "server": "ycnwgCjOrF1uPyUGdHYsKbA1DAlD0Uv3yL7spDieGLFqOeQzkq5kcTGuOrs9VjUKKdQgfsIWv-8ij0w7bTeKa2GFyzlPKFCK5WOOShc5czX87lHI47M3vfN8zhGf0WpalDy0a_OjulWCiXesSJXkq3D_psMrF7DBIUmUpOm5qWLAU1TcLieAqS6MANUwbWD9s7z4bGbpfjZilhrVDvdYqKSH_B8MPGoY4MXuV8zPKDG9nEV1Vl0BjrPrwT78uoOV9WG7yba_KRBRVCuTjp1ftW"
+}
