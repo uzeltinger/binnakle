@@ -50,7 +50,7 @@ function calcularDescuentos(){
         document.getElementById("valorTotalDescuentos").innerHTML = nfEs.format(descuento_);        
 
         //document.getElementById("valorTotalConDescuentos").innerHTML = costoTotal_; <?php echo JText::_('BINNAKLE_CODIGO_PROMOCIONAL');?>
-        document.getElementById("validar-codigo").innerHTML = "<?php echo JText::_('BINNAKLE_CODIGO_APLICADO');?>";
+        document.getElementById("validar-codigo").innerHTML = "<?php echo JText::_('BINNAKLE_CODIGO_APLICADO');?>"; 
         
         document.getElementById("tr-carrito-descuentos").style.visibility = "visible";
 
@@ -234,7 +234,7 @@ function calcularDescuentos(){
 
                                 $tablaFooter .= '<tr><td><p></p></td></tr>
                                     <tr class="tr-carrito-descuentos"  id="tr-carrito-descuentos">
-                                        <td class="item-name"><span><?php echo JText::_("BINNAKLE_CODIGO_PROMOCIONAL");?> </span></td><td class="item-costo">-<span id="valorTotalDescuentos"></span>€</td>
+                                        <td class="item-name"><span>'.JText::_("BINNAKLE_CODIGO_PROMOCIONAL").'</span></td><td class="item-costo">-<span id="valorTotalDescuentos"></span>€</td>
                                     </tr>
                                 ';
                                 $tablaFooter .= '
