@@ -88,7 +88,11 @@ if (count($carrito) > 0) {
                             //$costoTotal = 1000;
 
                             $envio_name = $pais_envio->envio_name;
-                            $envio_costo = $pais_envio->envio_costo;
+                            if($item->envio){
+                                $envio_costo = $pais_envio->envio_costo;
+                            }else{
+                                $envio_costo = 0;
+                            }
                             $envio_dias = $pais_envio->envio_dias;
                             $impuesto_name = $pais_facturacion->impuesto_name;
                             $impuesto_value = $pais_facturacion->impuesto_value;
@@ -108,9 +112,12 @@ if (count($carrito) > 0) {
                         <td class="text-align-right"><?php echo JText::_('BINNAKLE_CODIGO_PROMOCIONAL');?></td><td nowrap class="text-align-right">-<?php echo number_format($descuento, 2, ',', '.'); ?> €</td>
                         </tr>
                         <?php } ?>
+                        <?php if($envio_costo>0){ ?>
                         <tr>
                         <td class="text-align-right"><?php echo JText::_('BINNAKLE_GASTOS_DE_ENVIO');?></td><td nowrap class="text-align-right"><?php echo number_format($envio_costo, 2, ',', '.'); ?> €</td>
                         </tr>
+                        <?php } ?>
+
 <?php if($impuesto>0){ ?>
     
                         <tr>
@@ -123,10 +130,11 @@ if (count($carrito) > 0) {
                         <tr>
                         <td class="text-align-right"><b><?php echo $textoTotal;?> </b></td><td nowrap class="text-align-right"><b><?php echo number_format($total, 2, ',', '.'); ?> €</b></td>
                         </tr>
+                        <?php if($envio_costo>0){ ?>
                         <tr>
                         <td><?php echo JText::_('BINNAKLE_PLAZO_DE_ENTREGA');?> <?php echo $envio_dias; ?> <?php echo JText::_('BINNAKLE_PLAZO_DE_ENTREGA_DIAS');?></td><td></td>
                         </tr>
-
+                        <?php } ?>
                         </tr>
                     </table>
 

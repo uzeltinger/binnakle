@@ -441,9 +441,13 @@ return $this->numeroPedido;
 			';
 		}
 		//print_r($costoTotal);echo '<br>';
-		$envio_name = $pais_envio->envio_name;
-		$envio_costo = $pais_envio->envio_costo;
-		$envio_dias = $pais_envio->envio_dias;
+		if($maletaTieneEnvio){
+			$envio_name = $pais_envio->envio_name;
+			$envio_costo = $pais_envio->envio_costo;
+			$envio_dias = $pais_envio->envio_dias;
+		}else{
+			$envio_costo = 0;
+		}
 		$impuesto_name = $pais_facturacion->impuesto_name;
 		$impuesto_value = $pais_facturacion->impuesto_value;
 		//print_r($envio_costo);echo '<br>';
