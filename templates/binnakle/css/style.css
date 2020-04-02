@@ -3104,3 +3104,60 @@ h2.titulo-kit {
         font-size: 12px;
     }
 }
+.suscribite input.button-green {
+    border: none;
+}
+.suscribite .inputbox.form-control {
+    font-size: 16px;
+}
+.suscribite .inputbox.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #9cb81e;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(156, 184, 30,.25);
+}
+.suscribite .popup-header {
+    min-height: 350px;
+    width: 100%;
+}
+.acymailing_togglemodule {
+    display: none!important;
+}
+.binnakle-popup-logo {
+    margin-top: 10px;
+    text-align: center;
+}
+.binnakle-popup-logo img {
+    margin: auto;
+    max-width: 200px;
+}
+#acymailingpopup {        
+    width: 600px!important;
+    height: 400px!important;
+}
+.binnakle-mission-0-texto a{
+    text-decoration: underline;
+}
+@media(max-width: 767px){
+    #acymailingpopup {        
+        width: 100%!important;
+        height: 400px!important;
+        left: auto!important;
+        top: 50px!important;
+        overflow: hidden;
+    }
+    .suscribite .popup-header {
+        min-height: 380px!important;
+    }
+}
+.acymailing_form small {
+    font-size: 10px;
+}
+.tmpl-component .alert-heading {
+	text-align: center;
+	color: #9cb81e;
+}
+.tmpl-component .alert-message {
+	text-align: center;
+}

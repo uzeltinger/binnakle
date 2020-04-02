@@ -127,7 +127,7 @@ $lang = substr( JRequest::getVar('lang','es') , 0, 2);
         <div class="redes">
           <div class="red"><a target="blank_" href="https://www.facebook.com/Binnakle-Innovation-Games-387805865132957/?modal=admin_todo_tour"><span class="fab fa-facebook-f"></span></a></div>
           <div class="red"><a target="blank_" href="https://twitter.com/IntCreativa"><span class="fab fa-twitter"></span></a></div>
-          <div class="red"><a target="blank_" href="https://www.youtube.com/channel/UCDiBAhZX0_bmH4u3PudoZqw?view_as=subscriber"><span class="fab fa-youtube"></span></a></div>
+          <div class="red"><a target="blank_" href="<?php echo $lang=='en'?'https://youtu.be/VLjl1Ep6kwc':'https://youtu.be/zzqq1mvSeqw';?>"><span class="fab fa-youtube"></span></a></div>
           <div class="red"><a target="blank_" href="https://www.instagram.com/binnakle_seriousgames/"><span class="fab fa-instagram"></span></a></div>
         </div>
         <div class="top-link-contacto"><a href="<?php echo $lang=='en'?'/en/contact.html':'/es/contacto.html';?>"><?php echo JText::_('BINNAKLE_CONTACTO');?></a></div>

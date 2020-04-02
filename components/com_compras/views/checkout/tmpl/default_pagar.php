@@ -68,7 +68,7 @@ if (count($carrito) > 0) {
                                 echo '<tr><td>
                             <div class="item item-game-' . $item->game . '">
                                 <div class="item-name">' . $item->name . '</div>                                
-                                <div class="item-detail">' . $item->detail . ' €</div>                                
+                                <div class="item-detail">' . $item->detail . '</div>                                
                             </div>
                             </td>
                             ';
@@ -185,10 +185,13 @@ if (count($carrito) > 0) {
 </div>
 <p><br></p>
 
-<script src="https://www.paypal.com/sdk/js?client-id=AS4lYTtG_YsXXoK0cLW63zrWw0u8ItDrbcM3oYhEope6g0yq5lR-_FFbBBIMiZmeYoDpVMj1T9-ymZ4o&locale=es_ES&currency=EUR"></script>
-<!--<script src="https://www.paypal.com/sdk/js?client-id=AQjc5obDnET1dhukTQMMVpok6phTEjsHjECD7_NCY2AlcrjKDYG0n14r2F5mZ_c1O_yvak7zYwAZIu-r&locale=es_ES&currency=EUR"></script>-->
+<!-- sanbox <script src="https://www.paypal.com/sdk/js?client-id=AS4lYTtG_YsXXoK0cLW63zrWw0u8ItDrbcM3oYhEope6g0yq5lR-_FFbBBIMiZmeYoDpVMj1T9-ymZ4o&locale=es_ES&currency=EUR"></script>-->
 
-
+<?php if($this->lang=='en'){ ?>
+    <script src="https://www.paypal.com/sdk/js?client-id=AQjc5obDnET1dhukTQMMVpok6phTEjsHjECD7_NCY2AlcrjKDYG0n14r2F5mZ_c1O_yvak7zYwAZIu-r&locale=en_GB&currency=USD"></script>
+<?php }else{ ?>
+    <script src="https://www.paypal.com/sdk/js?client-id=AQjc5obDnET1dhukTQMMVpok6phTEjsHjECD7_NCY2AlcrjKDYG0n14r2F5mZ_c1O_yvak7zYwAZIu-r&locale=es_ES&currency=EUR"></script>
+<?php } ?>
 <?php
     //print_r( $pais_envio );
     //purchase_units: <?php echo json_encode($purchase_units);
@@ -204,8 +207,8 @@ if (count($carrito) > 0) {
     //let comprador = <?php echo json_encode($this->comprador);?>;
     //console.log('comprador',comprador);
     paypal.Buttons({
-        createOrder: function(data, actions) { 
-
+        createOrder: function(data, actions) {
+            var currency_code = "<?php if($this->lang=='en'){ ?>USD<?php }else{ ?>EUR<?php } ?>";
                 let dataSend = {
                 email: "<?php echo $comprador['email']; ?>",
                 address_details: {
@@ -229,15 +232,15 @@ if (count($carrito) > 0) {
                         value: <?php echo $total; ?>,
                         breakdown: {
                             item_total: {
-                                currency_code: "EUR",
+                                currency_code: currency_code,
                                 value: <?php echo $costo; ?>
                             },
                             shipping:  {
-                                currency_code: "EUR",
+                                currency_code: currency_code,
                                 value: <?php echo number_format($envio_costo, 2, '.', ','); ?>
                             },                            
                             tax_total:  {
-                                currency_code: "EUR",
+                                currency_code: currency_code,
                                 value: <?php echo number_format($impuesto, 2, '.', ','); ?>
                             }
                         }
@@ -246,11 +249,11 @@ if (count($carrito) > 0) {
                         {
                             name:"<?php echo $descriptionPaypal; ?>",
                             unit_amount: {
-                                currency_code: "EUR",
+                                currency_code: currency_code,
                                 value: <?php echo $costo; ?>
                             },
                             tax: {
-                                currency_code: "EUR",
+                                currency_code: currency_code,
                                 value: <?php echo number_format($impuesto, 2, '.', ','); ?>
                             },
                             quantity: 1
@@ -297,16 +300,16 @@ if (count($carrito) > 0) {
                 let comprador = <?php echo json_encode($this->comprador);?>;
                 var body = {data: data, details: details, comprador: comprador};
 
-                let dominio = 'https://binnakle.com';//'http://binnakle.joomla';
+                let dominio = '<?php echo JUri::base();?>';//'https://binnakle.com';//'http://binnakle.joomla';
                 <?php 
                 if($this->lang=='en'){
                     ?>
-                    dominio = dominio + '/en';
+                    dominio = dominio + 'en/';
                     <?php
                 }
                 ?>
                 var order = 0;
-                fetch(dominio + '/comprar-maleta.html?pago_online=4', {
+                fetch(dominio + 'comprar-maleta.html?pago_online=4', {
                     method: 'post',
                     headers: {
                         'content-type': 'application/json'
@@ -322,7 +325,7 @@ if (count($carrito) > 0) {
                 })
                 .then(function(text) {
                     console.log('text',text);
-                    window.location.href = dominio + '/comprar-maleta.html?pago_online=1' + '&order=' + text;
+                    window.location.href = dominio + 'comprar-maleta.html?pago_online=1' + '&order=' + text;
                 });
                 setTimeout(() => {
 //                    window.location.href = dominio + '/comprar-maleta.html?pago_online=1' + '&order=' + order;
