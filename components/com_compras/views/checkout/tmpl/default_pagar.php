@@ -63,16 +63,17 @@ if (count($carrito) > 0) {
                             $costoTotal = 0;
                             $purchase_units = [];
                             $description = "";
+                            $envio_costo = 0;                            
                             foreach ($carrito as $item) {
                                 $totalMaletasComprar++;
                                 echo '<tr><td>
-                            <div class="item item-game-' . $item->game . '">
-                                <div class="item-name">' . $item->name . '</div>                                
-                                <div class="item-detail">' . $item->detail . '</div>                                
-                            </div>
-                            </td>
-                            ';
-                            echo '<td nowrap class="text-align-right"><div class="item-costo">' . number_format($item->costo, 2, ',', '.') . ' €</div></td></tr>';
+                                <div class="item item-game-' . $item->game . '">
+                                    <div class="item-name">' . $item->name . '</div>                                
+                                    <div class="item-detail">' . $item->detail . '</div>                                
+                                </div>
+                                </td>
+                                ';
+                                echo '<td nowrap class="text-align-right"><div class="item-costo">' . number_format($item->costo, 2, ',', '.') . ' €</div></td></tr>';
                                 $costoTotal += $item->costo;
 
                                 if ($totalMaletasComprar > 1) {
@@ -80,6 +81,10 @@ if (count($carrito) > 0) {
                                 }
 
                                 $description = $description . $item->name . "";
+
+                                if($item->envio){
+                                    $envio_costo = $pais_envio->envio_costo;
+                                }
                             }
                             if($descuento>0){
                                 $costoTotal = $costoTotal - $descuento;                                
@@ -88,11 +93,7 @@ if (count($carrito) > 0) {
                             //$costoTotal = 1000;
 
                             $envio_name = $pais_envio->envio_name;
-                            if($item->envio){
-                                $envio_costo = $pais_envio->envio_costo;
-                            }else{
-                                $envio_costo = 0;
-                            }
+                            
                             $envio_dias = $pais_envio->envio_dias;
                             $impuesto_name = $pais_facturacion->impuesto_name;
                             $impuesto_value = $pais_facturacion->impuesto_value;
@@ -104,7 +105,6 @@ if (count($carrito) > 0) {
                             $impuesto = round(($costoTotal / 100) * $impuesto_value, 2);
 
                             $total = $costoTotal + $impuesto;
-
                             ?>
 
                         <?php if($descuento>0){ ?>
