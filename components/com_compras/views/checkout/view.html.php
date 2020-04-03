@@ -142,6 +142,7 @@ class ComprasViewCheckout extends JViewLegacy
 			if($this->webinar>0){
 				$carrito[$this->webinar] = $maletas[$this->webinar];
 				$this->carrito = $carrito;
+				$session->set('carrito', $carrito);
 			}
 			
 			$this->idDescuento = $jinput->get('idDescuento', 0);
